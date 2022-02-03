@@ -1,0 +1,19 @@
+{
+  "name": "@protagonists/emitter",
+  "version": "1.0.0",
+  "description": "A simple emitter package",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ThePywon/emitter.git"
+  },
+  "author": "Pywon",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ThePywon/emitter/issues"
+  },
+  "homepage": "https://github.com/ThePywon/emitter#readme"
+}
