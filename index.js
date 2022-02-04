@@ -6,9 +6,7 @@ const plus = require("./object-plus.js");
 function Emitter() {
   const events = new LockedArray();
   const eventKey = events.key;
-  const defaults = new LockedArray();
-  const defaultKey = defaults.key;
-  const defEnabled = {};
+  const defaults = {};
   
   Object.defineProperties(this, {
     events:{
@@ -17,36 +15,37 @@ function Emitter() {
     },
     defaults:{
       enumerable:true,
-      get:()=>{return defaults.value}
+      get:()=>{return defaults}
     }
   });
 
-  Object.defineProperty(this, "default", {
+  Object.defineProperty(this, "setDefault", {
     enumerable:true,
-    value:function Default(name, callback) {
+    value:function Default(name, callback, overridable) {
       if(typeof name !== "string") throw new Error("Emitter event name must be of type String.");
       if(typeof callback !== "function") throw new Error("Emitter event callback must be of type Function.");
 
-      if(defaults.find({name})) defEnabled[name] = true;
-      defaults.unlock(defaultKey);
-      defaults.add({name,callback});
-      defaults.lock();
+      if(defaults[name] && !defaults[name].overridable)
+        throw new Error("Default event callback non overridable");
+      
+      defaults[name] = {name,callback,overridable,enabled:!defaults[name]||defaults[name].enabled};
     },
     writable:false
   });
 
-  Object.defineProperty(this, "disableDefaults", {
+  Object.defineProperty(this, "disableDefault", {
     enumerable:true,
-    value:function disableDefaults(name) {
-      defEnabled[name] = false;
+    value:function disableDefault(name) {
+      if(defaults[name])
+        defaults[name].enabled = false;
     },
     writable:false
   });
 
-  Object.defineProperty(this, "enableDefaults", {
+  Object.defineProperty(this, "enableDefault", {
     enumerable:true,
-    value:function enableDefaults(name) {
-      defEnabled[name] = true;
+    value:function enableDefault(name) {
+      defaults[name] ? defaults[name].enabled = true : defaults[name] = {enabled:true};
     },
     writable:false
   });
@@ -82,9 +81,8 @@ function Emitter() {
     value:function emit(name, ...args) {
       if(typeof name != "string") throw new Error("Emitter event name must be of type String.");
     
-      for(let i = 0; i < this.defaults.length; i++)
-        if(defEnabled[name] && this.defaults[i].name === name)
-          this.defaults[i].callback(...args);
+      if(this.defaults[name].enabled && this.defaults[name].callback)
+        this.defaults[name].callback(...args);
 
       let deletion = [];
       for(let i = 0; i < this.events.length; i++)

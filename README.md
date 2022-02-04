@@ -9,17 +9,17 @@ use an emitter
 # Table of content
 
 * [How to use?](#how-to-use)
-* [Properties](#Properties)
-  * [`Emitter.events`](#Emitter-events)
-  * [`Emitter.defaults`](#Emitter-defaults)
-* [Functions](#Functions)
-  * [`Emitter.on`](#Emitter-on)
-  * [`Emitter.once`](#Emitter-once)
-  * [`Emitter.emit`](#Emitter-emit)
-  * [`Emitter.default`](#Emitter-default)
-  * [`Emitter.disableDefaults`](#Emitter-disableDefaults)
-  * [`Emitter.enableDefaults`](#Emitter-enableDefaults)
-* [Data Objects](#Data-Objects)
+* [Properties](#properties)
+  * [`Emitter.events`](#emitterevents)
+  * [`Emitter.defaults`](#emitterdefaults)
+* [Functions](#functions)
+  * [`Emitter.on`](#emitteron)
+  * [`Emitter.once`](#emitteronce)
+  * [`Emitter.emit`](#emitteremit)
+  * [`Emitter.default`](#emitterdefault)
+  * [`Emitter.disableDefaults`](#emitterdisableDefaults)
+  * [`Emitter.enableDefaults`](#emitterenableDefaults)
+* [Data Objects](#dataobjects)
   * [`event`](#event)
 
 # How to use?
@@ -161,14 +161,23 @@ Emitter.on(name: String, callback: Function)
 #### Code:
 
 ```js
-myEmitter.on("event", myFunc);
+myEmitter.on("event", function myFunc() {
+  console.log("Event was called!");
+});
 
 console.log(myEmitter.events);
+
+myEmitter.emit("event");
+myEmitter.emit("event");
+myEmitter.emit("event");
 ```
 
 #### Output:
 
     [ { name:"events", callback:[Function: myFunc] } ]
+    Event was called!
+    Event was called!
+    Event was called!
 
 ## Emitter.once
 
@@ -187,9 +196,15 @@ Emitter.once(name: String, callback: Function)
 #### Code:
 
 ```js
-myEmitter.once("event", myFunc);
+myEmitter.once("event", function myFunc() {
+  console.log("Event was called!");
+});
 
 console.log(myEmitter.events);
+
+myEmitter.emit("event");
+myEmitter.emit("event");
+myEmitter.emit("event");
 ```
 
 #### Output:
@@ -201,6 +216,7 @@ console.log(myEmitter.events);
         once:true
       }
     ]
+    Event was called!
 
 ## Emitter.emit
 
