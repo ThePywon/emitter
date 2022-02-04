@@ -19,7 +19,7 @@ use an emitter
   * [`Emitter.default`](#emitterdefault)
   * [`Emitter.disableDefaults`](#emitterdisableDefaults)
   * [`Emitter.enableDefaults`](#emitterenableDefaults)
-* [Data Objects](#dataobjects)
+* [Data Objects](#data-objects)
   * [`event`](#event)
 
 # How to use?

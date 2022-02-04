@@ -81,7 +81,7 @@ function Emitter() {
     value:function emit(name, ...args) {
       if(typeof name != "string") throw new Error("Emitter event name must be of type String.");
     
-      if(this.defaults[name].enabled && this.defaults[name].callback)
+      if(this.defaults[name] && this.defaults[name].enabled && this.defaults[name].callback)
         this.defaults[name].callback(...args);
 
       let deletion = [];
