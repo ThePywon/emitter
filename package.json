@@ -1,8 +1,8 @@
 {
   "name": "@protagonists/emitter",
-  "version": "1.0.1",
+  "version": "1.0.6",
   "description": "A simple emitter package",
-  "main": "index.js",
+  "main": "emitter",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/ThePywon/emitter/issues"
   },
-  "homepage": "https://github.com/ThePywon/emitter#readme"
+  "homepage": "https://github.com/ThePywon/emitter#emitter",
+  "dependencies": {
+    "@protagonists/locked-array": "^1.0.0"
+  }
 }
