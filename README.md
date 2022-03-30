@@ -16,11 +16,11 @@ use an emitter
   * [`Emitter.on`](#emitteron)
   * [`Emitter.once`](#emitteronce)
   * [`Emitter.emit`](#emitteremit)
-  * [`Emitter.default`](#emitterdefault)
-  * [`Emitter.disableDefaults`](#emitterdisableDefaults)
-  * [`Emitter.enableDefaults`](#emitterenableDefaults)
-* [Data Objects](#dataobjects)
-  * [`event`](#event)
+  * [`Emitter.setDefault`](#emittersetdefault)
+  * [`Emitter.disableDefault`](#emitterdisableDefaults)
+  * [`Emitter.enableDefault`](#emitterenableDefaults)
+* [Data Objects](#data-objects)
+  * [`Event`](#event)
 
 # How to use?
 
@@ -98,32 +98,31 @@ console.log(myEmitter.events);
 
 ### Description
 
-This property returns an array of all the ***default** event callbacks currently inside the emitter 
+This property returns an object containing all **default** event callbacks currently inside the emitter 
 
 ### Returned value
 
 ```js
-Array []
+Object {}
 ``` 
-*Elements within that array are formatted as [such](#event)*  
-***Editing the array does not change the actual array inside the emitter**
+*Elements within that object are formatted as [such](#event)*  
+***Editing the properties does not change the actual object inside the emitter**
 
 ### Example
 
 #### Code:
 
 ```js
-myEmitter.default("ready", console.log);
-myEmitter.default("debug", console.log);
-myEmitter.default("test", console.log);
-myEmitter.default("debug", console.log);
+myEmitter.setDefault("ready", console.log);
+myEmitter.setDefault("debug", console.log);
+myEmitter.setDefault("test", console.log);
 
 console.log(myEmitter.defaults);
 ```
 
 #### Ouput:
 
-    [
+    {
       {
         name:"ready",
         callback: [Function: log]
@@ -135,12 +134,8 @@ console.log(myEmitter.defaults);
       {
         name:"test",
         callback: [Function: log]
-      },
-      {
-        name:"debug",
-        callback: [Function: log]
       }
-    ]
+    }
 
 # Functions
 
@@ -174,7 +169,12 @@ myEmitter.emit("event");
 
 #### Output:
 
-    [ { name:"events", callback:[Function: myFunc] } ]
+    [
+      {
+        name:"events",
+        callback:[Function: myFunc]
+      }
+    ]
     Event was called!
     Event was called!
     Event was called!
@@ -250,7 +250,7 @@ myEmitter.emit("person", "John", 32);
 
     Hello! My name is John and I am 32 years old!
 
-## Emitter.default
+## Emitter.setDefault
 
 ### Description
 
@@ -271,7 +271,7 @@ myEmitter.on("test", ()=>{
   console.log("Running some code.");
 });
 
-myEmitter.default("test", ()=>{
+myEmitter.setDefault("test", ()=>{
   console.log("Running important code here before the other callbacks.");
 });
 
@@ -285,20 +285,21 @@ myEmitter.emit("test");
 
 notice how, even when we call [`Emitter.on`](#Emitter-on) earlier, the default callback gets called first?  
 usually, callbacks get called in the order they were defined  
-that still is technically true for default callbacks between themselves  
 but we can see that **default callbacks** are prioritised above normal **event callbacks**
 
-## Emitter.disableDefaults
+Another difference to take note is that there can only be a single default callback per event
+
+## Emitter.disableDefault
 
 ### Description
 
 This one is pretty self explanatory,  
-it disables all default callbacks for a specific event
+it disables the default callback for a specific event
 
 ### Syntax
 
 ```js
-Emitter.disableDefaults(name: String)
+Emitter.disableDefault(name: String)
 ```
 
 ### Example
@@ -306,7 +307,7 @@ Emitter.disableDefaults(name: String)
 #### Code:
 
 ```js
-myEmitter.default("event", ()=>{
+myEmitter.setDefault("event", ()=>{
   console.log("Annoying default behaviour!");
 });
 
@@ -314,7 +315,9 @@ myEmitter.on("event", ()=>{
   console.log("My behaviour.");
 });
 
-myEmitter.disableDefaults("event");
+myEmitter.disableDefault("event");
+
+myEmitter.emit("event");
 ```
 
 #### Output
@@ -324,20 +327,20 @@ myEmitter.disableDefaults("event");
 There we go!
 If you want to make a package including an emitter like that one,  
 I highly suggest making default callbacks instead of normal event callbacks  
-because then, you can give the power to users to simply disable it if they find it annoying
-***Disabling defaults BEFORE adding the first default callback will not work!**
+because then, you can give the power to users to simply disable it if they find it annoying  
+***Disabling defaults BEFORE adding the default callback will not work!**
 
-## Emitter.enableDefaults
+## Emitter.enableDefault
 
 ### Description
 
-This one is exactly the opposite of [`Emitter.disableDefaults`](#Emitter-disableDefaults),  
-it enables all default callbacks for a specific event
+This one is exactly the opposite of [`Emitter.disableDefault`](#emitterdisabledefault),  
+it enable the default callback for a specific event
 
 ### Syntax
 
 ```js
-Emitter.enableDefaults(name: String)
+Emitter.enableDefault(name: String)
 ```
 
 ### Example
@@ -345,7 +348,7 @@ Emitter.enableDefaults(name: String)
 #### Code:
 
 ```js
-myEmitter.default("event", ()=>{
+myEmitter.setDefault("event", ()=>{
   console.log("Default behaviour.");
 });
 
@@ -358,7 +361,9 @@ myEmitter.once("event", ()=>{
   myEmitter.emit("event");
 });
 
-myEmitter.disableDefaults("event");
+myEmitter.disableDefault("event");
+
+myEmitter.emit("event");
 ```
 
 #### Output
@@ -372,14 +377,14 @@ we then emitted the event once more after enabling it and now the default callba
 
 # Data Objects
 
-## event
+## Event
 
 ### Description
 
 event objects are simple, they store data for the emitter to use.  
 you can access this data if nessecary! 
 
-### properties
+### Properties
 
 `name` *String*  
 contains the event name that the callback is associated to
