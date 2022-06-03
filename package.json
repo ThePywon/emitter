@@ -17,6 +17,6 @@
   },
   "homepage": "https://github.com/ThePywon/emitter#emitter",
   "dependencies": {
-    "@protagonists/locked-array": "^1.0.0"
+    "@protagonists/coerce": "^1.0.6"
   }
 }
