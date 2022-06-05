@@ -31,7 +31,6 @@ A simple event handler package
   <p>
 
   * [**EventListener**](https://github.com/ThePywon/emitter/blob/main/documentation/EventListener.md)
-  * [**Options**](https://github.com/ThePywon/emitter/blob/main/documentation/Options.md)
     
   </p>
 </details>
