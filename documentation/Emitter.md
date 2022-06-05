@@ -26,8 +26,8 @@ A simple event handler package
 * <details open><summary><a href="#properties"><b>Properties</b></a></summary>
   <p>
   
-  * [**`.events`**](#events)
-  * [**`.defaults`**](#defaults)
+  * [**`.events`**](#events) &nbsp; ![Read Only](https://shields.io/badge/-Read%20Only-green)
+  * [**`.defaults`**](#defaults) &nbsp; ![Read Only](https://shields.io/badge/-Read%20Only-green)
     
   </p>
 </details>
@@ -101,7 +101,7 @@ Some maps of event listeners held by the emitter
 
 <br/>
 
-## `.events`
+## `.events` &nbsp; ![Read Only](https://shields.io/badge/-Read%20Only-green)
 
 This is where all event listeners except default ones are stored
 
@@ -170,7 +170,7 @@ Map(2) {
 
 <br/><br/>
 
-## `.defaults`
+## `.defaults` &nbsp; ![Read Only](https://shields.io/badge/-Read%20Only-green)
 
 This is where all default event listeners are stored
 
@@ -629,15 +629,16 @@ This gets called only once!
 
 ## `.emit`
 
-Create event listener
+Emit the corresponding event
 
 <br/>
 
-**Syntax:** &nbsp; `emit(name)`
+**Syntax:** &nbsp; `emit(name, ...args)`
 
 |**Parameters**|**Types**|
 |-|-|
 |`name`|[**String**](https://javascript.info/string)|
+|`...args`|**Any**|
 
 <br/>
 

@@ -121,6 +121,8 @@ function Emitter() {
         const _events = events.get(name);
         _events.sort((a, b) => a.order - b.order);
         
+        if(!_events[i].enabled) continue;
+
         if(_events[i].once) {
           _events[i].run(...args);
           _events.splice(i, 1);
