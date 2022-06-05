@@ -61,8 +61,6 @@ The class holding all info for an event subscription
 |`callback`|[**Function**](https://javascript.info/function-basics)|
 |`options`|[**Object**](https://javascript.info/object-basics)|
 
-> `options` is parsed and validated using the [`Options`](https://github.com/ThePywon/Documentation-Template/blob/main/documentation/Options.md) schema
-
 <br/>
 
 ### **Example**
