@@ -28,7 +28,8 @@ class EventListener {
       },
       enabled: {
         enumerable: true,
-        value: options.enabled
+        value: options.enabled,
+        writable: true
       }
     });
   }
