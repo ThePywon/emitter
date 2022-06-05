@@ -27,11 +27,11 @@ A simple event handler package
 
 > The content below does not correspond to the object structure of the objects
 
-* <details open><summary><a href="https://github.com/ThePywon/Documentation-Template/blob/main/documentation/Emitter.md"><b>Emitter</b></a> &nbsp; <img src="https://img.shields.io/badge/-Exported-cyan"/></summary>
+* <details open><summary><a href="https://github.com/ThePywon/emitter/blob/main/documentation/Emitter.md"><b>Emitter</b></a> &nbsp; <img src="https://img.shields.io/badge/-Exported-cyan"/></summary>
   <p>
 
-  * [**EventListener**](https://github.com/ThePywon/Documentation-Template/blob/main/documentation/EventListener.md)
-  * [**Options**](https://github.com/ThePywon/Documentation-Template/blob/main/documentation/Options.md)
+  * [**EventListener**](https://github.com/ThePywon/emitter/blob/main/documentation/EventListener.md)
+  * [**Options**](https://github.com/ThePywon/emitter/blob/main/documentation/Options.md)
     
   </p>
 </details>

@@ -107,7 +107,7 @@ This is where all event listeners except default ones are stored
 
 <br/>
 
-**Type:** &nbsp; [**Map**](https://javascript.info/map-set)**\<**[**Array**](https://javascript.info/array)**\<**[**EventListener**](https://github.com/ThePywon/Documentation-Template/blob/main/documentation/EventListener.md)**\>\>**
+**Type:** &nbsp; [**Map**](https://javascript.info/map-set)**\<**[**Array**](https://javascript.info/array)**\<**[**EventListener**](https://github.com/ThePywon/emitter/blob/main/documentation/EventListener.md)**\>\>**
 
 <br/>
 
@@ -176,7 +176,7 @@ This is where all default event listeners are stored
 
 <br/>
 
-**Type:** &nbsp; [**Map**](https://javascript.info/map-set)**\<**[**EventListener**](https://github.com/ThePywon/Documentation-Template/blob/main/documentation/EventListener.md)**\>**
+**Type:** &nbsp; [**Map**](https://javascript.info/map-set)**\<**[**EventListener**](https://github.com/ThePywon/emitter/blob/main/documentation/EventListener.md)**\>**
 
 <br/>
 
@@ -241,7 +241,7 @@ Creates and sets a default event listener for a specified event
 
 <br/>
 
-**Returns:** &nbsp; [**Emitter**](https://github.com/ThePywon/Documentation-Template/blob/main/documentation/Emitter.md)
+**Returns:** &nbsp; [**Emitter**](https://github.com/ThePywon/emitter/blob/main/documentation/Emitter.md)
 > Returns the same Emitter instance
 
 <br/>
@@ -295,7 +295,7 @@ Enable the default event listener
 
 <br/>
 
-**Returns:** &nbsp; [**Emitter**](https://github.com/ThePywon/Documentation-Template/blob/main/documentation/Emitter.md)
+**Returns:** &nbsp; [**Emitter**](https://github.com/ThePywon/emitter/blob/main/documentation/Emitter.md)
 > Returns the same Emitter instance
 
 <br/>
@@ -372,7 +372,7 @@ Disable default event listener
 
 <br/>
 
-**Returns:** &nbsp; [**Emitter**](https://github.com/ThePywon/Documentation-Template/blob/main/documentation/Emitter.md)
+**Returns:** &nbsp; [**Emitter**](https://github.com/ThePywon/emitter/blob/main/documentation/Emitter.md)
 > Returns the same Emitter instance
 
 <br/>
@@ -432,7 +432,7 @@ Create event listener
 
 <br/>
 
-**Returns:** &nbsp; [**Emitter**](https://github.com/ThePywon/Documentation-Template/blob/main/documentation/Emitter.md)
+**Returns:** &nbsp; [**Emitter**](https://github.com/ThePywon/emitter/blob/main/documentation/Emitter.md)
 > Returns the same Emitter instance
 
 <br/>
@@ -481,7 +481,7 @@ Create event listener with order value of 0
 
 <br/>
 
-**Returns:** &nbsp; [**Emitter**](https://github.com/ThePywon/Documentation-Template/blob/main/documentation/Emitter.md)
+**Returns:** &nbsp; [**Emitter**](https://github.com/ThePywon/emitter/blob/main/documentation/Emitter.md)
 > Returns the same Emitter instance
 
 <br/>
@@ -536,7 +536,7 @@ Create event listener with order value of 2
 
 <br/>
 
-**Returns:** &nbsp; [**Emitter**](https://github.com/ThePywon/Documentation-Template/blob/main/documentation/Emitter.md)
+**Returns:** &nbsp; [**Emitter**](https://github.com/ThePywon/emitter/blob/main/documentation/Emitter.md)
 > Returns the same Emitter instance
 
 <br/>
@@ -592,7 +592,7 @@ Create event listener
 
 <br/>
 
-**Returns:** &nbsp; [**Emitter**](https://github.com/ThePywon/Documentation-Template/blob/main/documentation/Emitter.md)
+**Returns:** &nbsp; [**Emitter**](https://github.com/ThePywon/emitter/blob/main/documentation/Emitter.md)
 > Returns the same Emitter instance
 
 <br/>
@@ -642,7 +642,7 @@ Emit the corresponding event
 
 <br/>
 
-**Returns:** &nbsp; [**Emitter**](https://github.com/ThePywon/Documentation-Template/blob/main/documentation/Emitter.md)
+**Returns:** &nbsp; [**Emitter**](https://github.com/ThePywon/emitter/blob/main/documentation/Emitter.md)
 > Returns the same Emitter instance
 
 <br/>
