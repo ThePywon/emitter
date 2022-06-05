@@ -73,13 +73,17 @@ This package is used to listen and emit events to react to asynchronous events i
 ### Code:
 
 ```js
+// Imports
 const Emitter = require("@protagonists/emitter");
+// Create Emitter instance
 const myEmitter = new Emitter();
 
+// Create one time event listener
 myEmitter.once("ready", () => {
   console.log("Ready event was sent!");
 });
 
+// Emit event
 myEmitter.emit("ready");
 ```
 

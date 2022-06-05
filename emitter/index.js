@@ -83,14 +83,14 @@ function Emitter() {
   Object.defineProperty(this, "pre", {
     enumerable: true,
     value: (name, callback) => {
-      this.on(name, callback, 0);
+      return this.on(name, callback, 0);
     }
   });
 
   Object.defineProperty(this, "pro", {
     enumerable: true,
     value: (name, callback) => {
-      this.on(name, callback, 2);
+      return this.on(name, callback, 2);
     }
   });
 
@@ -138,10 +138,10 @@ Emitter.setEmitter = Emitter.call;
 
 Object.defineProperties(Emitter.prototype, {
   valueOf: {
-    value: () => {return this.events}
+    value: function valueOf() {return this.events}
   },
   toString: {
-    value: () => {return "[object Emitter]"}
+    value: function toString() {return "[object Emitter]"}
   }
 });
 
