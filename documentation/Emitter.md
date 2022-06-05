@@ -21,7 +21,7 @@ A simple event handler package
 
 # Table of content
 
-* [**Emitter**](#emitter)
+* [**Emitter**](#emitter-1)
 
 * <details open><summary><a href="#properties"><b>Properties</b></a></summary>
   <p>
