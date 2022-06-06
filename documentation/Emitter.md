@@ -745,7 +745,11 @@ This function is equivalent to `Emitter.call`
 
 <br/>
 
-**Syntax:** &nbsp; `.setEmitter()`
+**Syntax:** &nbsp; `.setEmitter(obj)`
+
+|**Parameters**|**Types**|
+|-|-|
+|`obj`|[**Object**](https://javascript.info/object)|
 
 <br/>
 
