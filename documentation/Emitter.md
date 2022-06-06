@@ -737,6 +737,61 @@ Do something
 
 <br/><br/>
 
+<a id="setemitter"></a>
+
+## `.setEmitter` &nbsp; [![Static](https://shields.io/badge/-Static-red)](https://javascript.info/static-properties-methods)
+
+This function is equivalent to `Emitter.call`
+
+<br/>
+
+**Syntax:** &nbsp; `.setEmitter()`
+
+<br/>
+
+### **Example**
+
+**Code:**
+
+```js
+// Imports
+const Emitter = require("@protagonists/emitter");
+
+// Create class 'Emitter'
+class Person {
+  constructor(name) {
+    this.name = name;
+    // Set this instance as an Emitter on initialization
+    Emitter.setEmitter(this);
+  }
+
+  wakeUp() {
+    // Emit 'ready' event
+    this.emit("ready");
+  }
+}
+
+// Create new Person instance
+const John = new Person("John");
+
+// Log once ready
+John.on("ready", () => {
+  console.log(`${John.name} is ready to start the day!`);
+});
+
+// Call wakeUp() function
+John.wakeUp();
+```
+
+**Output:**
+
+```
+John is ready to start the day!
+```
+
+
+<br/><br/>
+
 
 <a id="valueof"></a>
 
