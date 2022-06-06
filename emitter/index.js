@@ -117,6 +117,8 @@ function Emitter() {
       if(defaults.get(name) && defaults.get(name).enabled)
         defaults.get(name).run(...args);
 
+      if(!events.get(name)) return this;
+      
       for(let i = 0; i < events.get(name).length; i++) {
         const _events = events.get(name);
         _events.sort((a, b) => a.order - b.order);

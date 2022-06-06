@@ -34,7 +34,8 @@ A simple event handler package
 
 * <details open><summary><a href="#methods"><b>Methods</b></a></summary>
   <p>
-  
+
+  * [**`.setEmitter`**](#setemitter) &nbsp; ![Static](https://shields.io/badge/-Static-red)
   * [**`.setDefault`**](#setdefault)
   * [**`.disableDefault`**](#disabledefault)
   * [**`.enableDefault`**](#enabledefault)
@@ -43,7 +44,6 @@ A simple event handler package
   * [**`.pro`**](#pro)
   * [**`.once`**](#once)
   * [**`.emit`**](#emit)
-  * [**`.setEmitter`**](#setemitter) &nbsp; [![Prototype](https://shields.io/badge/-Static-red)](https://javascript.info/static-properties-methods)
   * [**`.toString`**](#tostring) &nbsp; [![Prototype](https://shields.io/badge/-Prototype-orange)](https://javascript.info/prototype-inheritance)
   * [**`.valueOf`**](#valueof) &nbsp; [![Prototype](https://shields.io/badge/-Prototype-orange)](https://javascript.info/prototype-inheritance)
     
@@ -58,11 +58,13 @@ A simple event handler package
 
 # Emitter
 
-The class that handles events and listeners
+The function that handles events and listeners
 
 <br/>
 
 **Syntax:** &nbsp; `new Emitter()`
+
+> The lack of the `new` keyword may cause unwanted behaviour
 
 <br/>
 
@@ -224,6 +226,66 @@ Map(1) {
 Methods used to create event listeners and emit events
 
 <br/>
+
+## `.setEmitter` &nbsp; ![Static](https://shields.io/badge/-Static-red)
+
+This function is equivalent to `Emitter.call`
+
+<br/>
+
+**Syntax:** &nbsp; `setEmitter(obj)`
+
+|**Parameters**|**Types**|
+|-|-|
+|`obj`|[**Object**](https://javascript.info/object)|
+
+<br/>
+
+**Returns:** &nbsp; [**Emitter**](https://github.com/ThePywon/emitter/blob/main/documentation/Emitter.md)
+
+<br/>
+
+### **Example**
+
+**Code:**
+
+```js
+// Imports
+const Emitter = require("@protagonists/emitter");
+
+// Create 'Person' class and make it an emitter
+class Person {
+  constructor(name) {
+    this.name = name;
+    Emitter.setEmitter(this);
+  }
+
+  wakeUp() {
+    this.emit("ready");
+  }
+}
+
+// Create new Person instance
+const John = new Person("John");
+
+// Create event listener
+John.on("ready", () => {
+  console.log(`${John.name} is ready to start the day!`);
+});
+
+// Emit event
+John.wakeUp();
+```
+
+**Output:**
+
+```
+John is ready to start the day
+```
+
+
+<br/><br/>
+
 
 ## `.setDefault`
 
@@ -743,7 +805,7 @@ A function to convert this object into a primitive value
 
 <br/>
 
-**Returns:** &nbsp; [**String**](https://javascript.info/string)
+**Returns:** &nbsp; [**Map**](https://javascript.info/map-set)**\<**[**Array**](https://javascript.info/array)**\<**[**EventListener**](https://github.com/ThePywon/Documentation-Template/blob/main/documentation/EventListener.md)**\>\>**
 
 <br/>
 
@@ -793,7 +855,7 @@ A function to convert this object into a string format
 
 <br/>
 
-**Returns:** &nbsp; [**Map**](https://javascript.info/map-set)**\<**[**Array**](https://javascript.info/array)**\<**[**EventListener**](https://github.com/ThePywon/Documentation-Template/blob/main/documentation/EventListener.md)**\>\>**
+**Returns:** &nbsp; [**String**](https://javascript.info/string)
 
 <br/>
 
