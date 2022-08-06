@@ -3,7 +3,7 @@ const Options = require("./Options");
 
 class EventListener {
   constructor(callback, options) {
-    callback = new SchemaTypes._Function_().call(callback);
+    callback = new SchemaTypes.FunctionType().call(callback);
     options = Options(options || {});
     
     if(callback === undefined)
