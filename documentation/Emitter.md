@@ -15,6 +15,8 @@
 
 A simple event handler package
 
+> Now working with version `1.0.8` of `@protagonists/coerce`!
+
 ---
 
 <br/><br/><br/>
