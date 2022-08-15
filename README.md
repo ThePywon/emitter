@@ -15,6 +15,8 @@
 
 A simple event handler package
 
+> ![NEW](https://img.shields.io/badge/-New-red) &nbsp; Now works with [`@protagonists/coerce`](https://www.npmjs.com/package/@protagonists/coerce) version 1.1.2!
+
 ---
 
 <br/><br/><br/>
@@ -25,7 +27,7 @@ A simple event handler package
 
 * [**How to use?**](#how-to-use)
 
-> The content below does not correspond to the object structure of the objects
+> The content below may not correspond to the object structure of the objects
 
 * <details open><summary><a href="https://github.com/ThePywon/emitter/blob/main/documentation/Emitter.md"><b>Emitter</b></a> &nbsp; <img src="https://img.shields.io/badge/-Exported-cyan"/></summary>
   <p>

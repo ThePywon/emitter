@@ -1,10 +1,11 @@
-const { Schema, SchemaTypes } = require("@protagonists/coerce");
+const { Schema } = require("@protagonists/coerce");
+const { BooleanType, IntRange } = require("@protagonists/coerce-basics");
 
 const Options = new Schema({
-  once: Boolean,
-  order: SchemaTypes.IntRange(0, 2),
-  enabled: Boolean,
-  overridable: Boolean
+  once: BooleanType,
+  order: IntRange(0, 2),
+  enabled: BooleanType,
+  overridable: BooleanType
 });
 
 Options.setDefaults({
