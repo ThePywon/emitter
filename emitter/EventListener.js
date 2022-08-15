@@ -1,9 +1,9 @@
-const { SchemaTypes } = require("@protagonists/coerce");
+const { FunctionType } = require("@protagonists/coerce-basics");
 const Options = require("./Options");
 
 class EventListener {
   constructor(callback, options) {
-    callback = new SchemaTypes.FunctionType().call(callback);
+    callback = new FunctionType().call(callback);
     options = Options(options || {});
     
     if(callback === undefined)
